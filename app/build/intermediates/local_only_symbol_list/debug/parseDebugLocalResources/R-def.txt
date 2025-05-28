@@ -1,0 +1,32 @@
+R_DEF: Internal format may change without notice
+local
+id btn_back
+id btn_reset_password
+id container
+id email
+id map
+id mobile_navigation
+id nav_host_fragment
+id nav_view
+id navigation_home
+id navigation_login
+id navigation_post
+id navigation_search
+id progressBar
+layout activity_main
+layout activity_main0
+layout activity_maps
+layout activity_maps2
+layout activity_maps3
+layout activity_reset_password
+mipmap ic_launcher
+mipmap ic_launcher_round
+navigation mobile_navigation
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
+string project_id
+xml backup_rules
+xml data_extraction_rules
