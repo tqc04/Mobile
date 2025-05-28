@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">95217931128</string>
+    <string name="google_api_key" translatable="false">AIzaSyD42z6J2T5SrOWwZrllDzkUltHGL5tfwr0</string>
+    <string name="google_app_id" translatable="false">1:95217931128:android:61cc025323c26fb1d96e8d</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD42z6J2T5SrOWwZrllDzkUltHGL5tfwr0</string>
+    <string name="google_storage_bucket" translatable="false">timtro-6cfc2.firebasestorage.app</string>
+    <string name="project_id" translatable="false">timtro-6cfc2</string>
+</resources>
