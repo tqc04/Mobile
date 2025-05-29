@@ -22,8 +22,6 @@ import com.example.finalapp.model.BaiDang;
 import com.example.finalapp.model.Motel;
 import com.example.finalapp.model.QuanHuyen;
 import com.example.finalapp.model.TinhTP;
-import com.example.finalapp.sqlite.SQLite_QuanHuyen;
-import com.example.finalapp.sqlite.SQLite_TinhTP;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,8 +35,6 @@ import java.util.List;
 public class SearchFragment extends Fragment {
     ///////////
 
-    SQLite_TinhTP sqLite_tinhTP;
-    SQLite_QuanHuyen sqLite_quanHuyen;
     ArrayAdapter<TinhTP> adapter_Tinh;
     ArrayAdapter<QuanHuyen> adapter_QH;
     RadioButton timtro, oghep, tinhhuyen;
@@ -298,33 +294,45 @@ public class SearchFragment extends Fragment {
     }
 
     public void actionSql() {
-        sqLite_tinhTP = new SQLite_TinhTP(getActivity());
-        sqLite_quanHuyen = new SQLite_QuanHuyen(getActivity());
-        List<TinhTP> tinhTPS = sqLite_tinhTP.getDSTP();
-//idtinh = tinhTPS.get(1).getId();
-        adapter_Tinh = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, tinhTPS);
-        tinh.setAdapter(adapter_Tinh);
-
-        tinh.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        DatabaseReference tinhRef = FirebaseDatabase.getInstance().getReference("TinhTP");
+        tinhRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                TinhTP tinhTP1 = (TinhTP) parent.getAdapter().getItem(position);
-                Log.i("abcabcabc", tinhTP1.toString());
-                int idtinh = tinhTP1.getId();
-                Log.i("abcabcabc", idtinh + "");
-                huyen.invalidate();
-                List<QuanHuyen> quanHuyens = sqLite_quanHuyen.getDSQH(idtinh);
-                adapter_QH = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, quanHuyens);
-                huyen.setAdapter(adapter_QH);
-                String text = huyen.getSelectedItem().toString();
-                Log.i("abcabcabc", text);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<TinhTP> tinhTPS = new ArrayList<>();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    TinhTP tp = dataSnapshot.getValue(TinhTP.class);
+                    tinhTPS.add(tp);
+                }
+                adapter_Tinh = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, tinhTPS);
+                tinh.setAdapter(adapter_Tinh);
+                // Set district spinner when province selected
+                tinh.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        TinhTP tinhTP1 = (TinhTP) parent.getAdapter().getItem(position);
+                        int idtinh = tinhTP1.getId();
+                        DatabaseReference huyenRef = FirebaseDatabase.getInstance().getReference("QuanHuyen").child(String.valueOf(idtinh));
+                        huyenRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                List<QuanHuyen> quanHuyens = new ArrayList<>();
+                                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                    QuanHuyen qh = dataSnapshot.getValue(QuanHuyen.class);
+                                    quanHuyens.add(qh);
+                                }
+                                adapter_QH = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, quanHuyens);
+                                huyen.setAdapter(adapter_QH);
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {}
+                        });
+                    }
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {}
+                });
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError error) {}
         });
-
     }
 }
