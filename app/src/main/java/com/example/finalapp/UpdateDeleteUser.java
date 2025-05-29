@@ -14,14 +14,14 @@ Button update, delete;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_delete_user);
 
-        txname = findViewById(R.id.txtnameuser);
-        txname = findViewById(R.id.txtemails);
+        txname = findViewById(R.id.txtnameusers);
+        txemail = findViewById(R.id.txtemails);
         Intent intent = getIntent();
 
         String name = intent.getStringExtra("name");
         String email = intent.getStringExtra("email");
 
         txname.setText(name);
-//        txemail.setText(email);
+        txemail.setText(email);
     }
 }
