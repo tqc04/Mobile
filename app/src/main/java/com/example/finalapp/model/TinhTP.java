@@ -11,6 +11,9 @@ public class TinhTP {
         this.select = select;
     }
 
+    public TinhTP() {
+    }
+
     public TinhTP(int id, String ten) {
         this.id = id;
         this.ten = ten;

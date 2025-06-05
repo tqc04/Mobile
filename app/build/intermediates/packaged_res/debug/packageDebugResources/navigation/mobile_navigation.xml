@@ -25,6 +25,6 @@
     <fragment
         android:id="@+id/navigation_login"
         android:name="com.example.finalapp.ui.login.User"
-        android:label="User"
+        android:label="@string/title_user"
         tools:layout="@layout/fragment_login" />
 </navigation>

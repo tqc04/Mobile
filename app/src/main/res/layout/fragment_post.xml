@@ -3,16 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <ScrollView
         android:layout_width="match_parent"
         android:paddingBottom="60dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -71,7 +73,8 @@
                     android:id="@+id/spiner_gioitinh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/gioi_tinh"></Spinner>
+                    android:entries="@array/gioi_tinh">
+                </Spinner>
             </LinearLayout>
 
             <LinearLayout
@@ -114,7 +117,9 @@
                     android:id="@+id/spiner_tinh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"></Spinner>
+                    android:layout_weight="1">
+
+                </Spinner>
 
 
             </LinearLayout>
@@ -138,7 +143,9 @@
                     android:id="@+id/spiner_huyen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"></Spinner>
+                    android:layout_weight="1">
+
+                </Spinner>
 
 
             </LinearLayout>
@@ -230,7 +237,9 @@
                     android:id="@+id/spiner_loaingay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/gia_tien"></Spinner>
+                    android:entries="@array/gia_tien">
+
+                </Spinner>
             </LinearLayout>
 
             <LinearLayout
@@ -250,7 +259,9 @@
                     android:id="@+id/spiner_hinhthucdang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/hinh_thuc_dang"></Spinner>
+                    android:entries="@array/hinh_thuc_dang">
+
+                </Spinner>
             </LinearLayout>
 
             <LinearLayout
@@ -270,7 +281,9 @@
                     android:id="@+id/spiner_loaitin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/loai_tin"></Spinner>
+                    android:entries="@array/loai_tin">
+
+                </Spinner>
             </LinearLayout>
 
             <LinearLayout
@@ -286,7 +299,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="Thêm hình ảnh"
-                    android:textColor="@color/color3"></TextView>
+                    android:textColor="@color/color3">
+
+                </TextView>
 
                 <Button
 
@@ -306,8 +321,9 @@
 
             <Button
                 android:id="@+id/btluu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
                 android:layout_gravity="center"
                 android:background="@color/color_4"
                 android:text="Hoàn tất và thanh toán"

@@ -3,7 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_search">Tìm Kiếm</string>
     <string name="title_post">Đăng Bài</string>
-    <string name="title_user">User</string>
+    <string name="title_user">Thông tin tài khoản</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="auth_failed">Authentication failed</string>
     <string name="ten">Tiêu đề:</string>
