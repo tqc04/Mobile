@@ -13,7 +13,8 @@ public class QuanHuyen {
         this.select = select;
     }
 
-
+    public QuanHuyen() {
+    }
 
     public boolean isSelect() {
 
@@ -55,6 +56,7 @@ public class QuanHuyen {
     public void setTen(String ten) {
         this.ten = ten;
     }
+
     @Override
     public String toString() {
         return  this.ten;

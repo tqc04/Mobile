@@ -1,5 +1,5 @@
 [versions]
-agp = "8.9.0"
+agp = "8.10.1"
 androidGifDrawable = "1.2.8"
 androidxJunit = "1.1.2"
 appcompatVersion = "1.2.0"

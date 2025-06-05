@@ -324,7 +324,9 @@ public class SearchFragment extends Fragment {
                                 huyen.setAdapter(adapter_QH);
                             }
                             @Override
-                            public void onCancelled(@NonNull DatabaseError error) {}
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Log.e("TEST_QH", "Lỗi đọc Firebase: " + error.getMessage());
+                            }
                         });
                     }
                     @Override
@@ -333,6 +335,7 @@ public class SearchFragment extends Fragment {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {}
+
         });
     }
 }
